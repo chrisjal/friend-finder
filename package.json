@@ -1,0 +1,25 @@
+{
+  "name": "friend-finder",
+  "version": "1.0.0",
+  "description": "Full-stack dating site that takes in results from user surveys, then compares their answers with those from other users. The application then displays the name and picture of the user with the best overall match. Utilizes Express to handle routes.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisjal/friend-finder.git"
+  },
+  "author": "Chris Jalallian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisjal/friend-finder/issues"
+  },
+  "homepage": "https://github.com/chrisjal/friend-finder#readme"
+}
