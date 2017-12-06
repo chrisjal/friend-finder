@@ -15,21 +15,24 @@ module.exports = function(app) {
       difference: 500
     };
 
-    const user = req.body;
-    const userScore = user.userScore;
+    let user = req.body;
+    let userScore = user.scores;
     let totalDiff;
 
     // Loop through all friends in the friend db to compare with
     for (var i = 0; i < friends.length; i++) {
-      const currentUser = friends[i];
+      let friendCompare = friends[i];
+      totalDiff = 0;
       // Loop through the current user's score to find comparable friend matches based on score
-      for (var j = 0; j < currentUser.length; j++) {
-        totalDiff += Math.abs(parseInt(currentUser.scores[j]) - parseInt(userScore[j]))
+      for (var j = 0; j < friendCompare.scores.length; j++) {
+        let friendCompareScore = friendCompare.scores[j];
+        let currentUserScore = userScore[j];
+        totalDiff += Math.abs(parseInt(friendCompareScore) - parseInt(currentUserScore))
       }
 
       if (totalDiff <= newFriendMatch) {
-        newFriendMatch.name = currentUser.name;
-        newFriendMatch.photo = currentUser.photo;
+        newFriendMatch.name = friendCompare.name;
+        newFriendMatch.photo = friendCompare.photo;
         newFriendMatch.difference = totalDiff;
       }
     }
